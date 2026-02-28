@@ -38,6 +38,8 @@
 4. Настройте подключение в `db.js`.
 5. Запустите сервер: `npm run dev`.
 
+
+```mermaid
 erDiagram
     PERSON ||--o{ POST : "writes"
     
@@ -53,3 +55,5 @@ erDiagram
         string content
         int user_id FK
     }
+```
+

@@ -1,0 +1,57 @@
+openapi: 3.0.0
+info:
+  title: User Posts API
+  description: API для управления пользователями и их постами (Pet-проект)
+  version: 1.0.0
+paths:
+  /api/user:
+    post:
+      summary: Создать пользователя
+      tags: [Users]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name: {type: string}
+                surname: {type: string}
+      responses:
+        '200':
+          description: Пользователь создан
+    get:
+      summary: Получить всех пользователей
+      tags: [Users]
+      responses:
+        '200':
+          description: Список пользователей
+  /api/user/{id}:
+    get:
+      summary: Получить пользователя по ID
+      tags: [Users]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: {type: integer}
+      responses:
+        '200':
+          description: Данные пользователя
+  /api/post:
+    post:
+      summary: Создать пост
+      tags: [Posts]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title: {type: string}
+                content: {type: string}
+                userId: {type: integer}
+      responses:
+        '200':
+          description: Пост успешно создан
